@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Приглашение для Қарақат</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="card">
+    <div class="badge">💌 Особенное приглашение</div>
+
+    <h1>Қарақат ✨</h1>
+    <p class="text">
+      В этот особенный день я хочу пригласить тебя
+      провести вечер в уютной атмосфере.
+      Мне будет очень приятно разделить его с тобой 🌹
+    </p>
+
+    <div class="info">
+      <div class="row"><span>📍 Место:</span> <b>Ресторан Vincent</b></div>
+      <div class="row"><span>🗓 Дата:</span> <b>14.02</b></div>
+      <div class="row"><span>⏰ Время:</span> <b>17:00</b></div>
+    </div>
+
+    <div class="buttons">
+      <button class="yes" onclick="answerYes()">Я буду рада 💖</button>
+      <button class="no" onclick="answerNo()">Не смогу 🙈</button>
+    </div>
+
+    <p id="answer" class="answer"></p>
+
+    <footer class="footer">С нетерпением жду этого вечера 🤍</footer>
+  </main>
+
+  <script>
+    function answerYes() {
+      document.getElementById("answer").textContent =
+        "Тогда это будет прекрасный вечер ✨ Я напишу тебе детали 😊";
+      hearts();
+    }
+
+    function answerNo() {
+      document.getElementById("answer").textContent =
+        "Понимаю 🌿 Тогда выберем другой день, когда тебе удобно.";
+    }
+
+    function hearts() {
+      for (let i = 0; i < 15; i++) {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.style.left = (10 + Math.random() * 80) + "vw";
+        h.style.animationDuration = (2 + Math.random() * 2) + "s";
+        h.style.fontSize = (16 + Math.random() * 20) + "px";
+        h.textContent = "❤";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
